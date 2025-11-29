@@ -1,0 +1,135 @@
+single_inheritance.cpp
+// C++ Single Inheritance Example
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    void speak() { cout << "Animal makes a sound" << endl; }
+};
+
+class Dog : public Animal {
+public:
+    void bark() { cout << "Dog barks" << endl; }
+};
+
+int main() {
+    Dog d;
+    d.speak();
+    d.bark();
+}
+
+
+
+multiple_inheritance.cpp
+#include <iostream>
+using namespace std;
+
+class Flyer {
+public:
+    void fly() { cout << "I can fly" << endl; }
+};
+
+class Swimmer {
+public:
+    void swim() { cout << "I can swim" << endl; }
+};
+
+class Duck : public Flyer, public Swimmer {
+public:
+    void quack() { cout << "Duck quacks" << endl; }
+};
+
+int main() {
+    Duck d;
+    d.fly();
+    d.swim();
+    d.quack();
+}
+
+
+
+multilevel_inheritance.cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    void eat() { cout << "Animal eats" << endl; }
+};
+
+class Dog : public Animal {
+public:
+    void bark() { cout << "Dog barks" << endl; }
+};
+
+class Puppy : public Dog {
+public:
+    void weep() { cout << "Puppy weeps" << endl; }
+};
+
+int main() {
+    Puppy p;
+    p.eat();
+    p.bark();
+    p.weep();
+}
+
+
+
+hierarchical_inheritance.cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    void speak() { cout << "Animal speaks" << endl; }
+};
+
+class Dog : public Animal {
+public:
+    void bark() { cout << "Dog barks" << endl; }
+};
+
+class Cat : public Animal {
+public:
+    void meow() { cout << "Cat meows" << endl; }
+};
+
+int main() {
+    Dog d;
+    Cat c;
+
+    d.speak();
+    d.bark();
+
+    c.speak();
+    c.meow();
+}
+
+
+
+overriding_example.cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void speak() {
+        cout << "Animal speaks" << endl;
+    }
+};
+
+class Dog : public Animal {
+public:
+    void speak() override {
+        cout << "Dog barks" << endl;
+    }
+};
+
+int main() {
+    Animal* a;
+    Dog d;
+    a = &d;
+    a->speak(); // Calls Dog's speak()
+}
